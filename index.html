@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider Tabs</title>
+    <style>
+      :root {
+        --primary: #262c56;
+        --secondary: #32396b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #808bef;
+        display: grid;
+        place-items: center;
+      }
+
+      .slider {
+        position: relative;
+        width: 50vw;
+        background-color: var(--primary);
+        color: #fff;
+        padding: 1rem;
+        border-radius: 0.6rem;
+        overflow: hidden;
+      }
+
+      .slider .icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 6rem;
+        height: 100%;
+        padding: 0.5rem;
+
+        display: flex;
+        align-items: center;
+      }
+
+      .slider .icon.hide {
+        display: none;
+      }
+
+      .slider .icon:first-child {
+        left: 0;
+        background: linear-gradient(to right, var(--primary) 45%, transparent);
+      }
+
+      .slider .icon:last-child {
+        justify-content: flex-end;
+        right: 0;
+        background: linear-gradient(to left, var(--primary) 45%, transparent);
+      }
+
+      .icon .left-arrow,
+      .icon .right-arrow {
+        display: inline-block;
+
+        --wh: 2.4rem;
+        width: var(--wh);
+        height: var(--wh);
+
+        border-radius: 50%;
+        text-align: center;
+        font: 300 1.5rem / var(--wh) 'Roboto', sans-serif; 
+      }
+      
+      .icon span:hover {
+        background-color: #fff2;
+        cursor: pointer;
+      }
+
+      .slider .tabs {
+        min-width: 99%;
+        list-style: none;
+
+        display: flex;
+        gap: 0.8rem;
+        overflow-x: auto;
+
+        scroll-behavior: smooth;
+      }
+
+      .slider .tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tabs .tab {
+        white-space: nowrap;
+        background-color: var(--secondary);
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 1.3rem;
+
+        transition: 0.2s ease-in-out;
+      }
+
+      .tabs .tab:hover {
+        background-color: #fff2;
+        cursor: pointer;
+      }
+
+      .tabs .tab.active {
+        background-color: whitesmoke;
+        color: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="slider" role="article">
+      <div class="icon">
+        <span class="left-arrow">&lt;</span>
+      </div>
+
+      <ul class="tabs">
+        <li class="tab">Alle</li>
+        <li class="tab active">Coding Design</li>
+        <li class="tab">Programming</li>
+        <li class="tab">Web Development</li>
+        <li class="tab">UI UX</li>
+        <li class="tab">Gaming</li>
+        <li class="tab">Animated Films</li>
+        <li class="tab">Gadgets</li>
+        <li class="tab">Wordpress</li>
+        <li class="tab">Shopify</li>
+        <li class="tab">Joomla</li>
+        <li class="tab">Gatsby</li>
+        <li class="tab">Next JS</li>
+      </ul>
+
+      <div class="icon">
+        <span class="right-arrow">&gt;</span>
+      </div>
+    </section>
+    <script src="./app.js"></script>
+  </body>
+</html>
